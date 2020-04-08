@@ -31,6 +31,7 @@ spectredata = pd.concat(
                         ).assign(
                             Spot = lambda df: pd.to_numeric(df.Identifier.str[4:8]), Spectre = lambda df: pd.to_numeric(df.Identifier.str[8:12])    
                         ).query(
+                            #La primera línea es la región no nula, la segunda es una región hipotetizada como de interés
                             #Longitudes de onda Zn
                             #"Wavelength > 325 & Wavelength < 645"
                             #"Wavelength > 530 & Wavelength < 630"
@@ -95,7 +96,7 @@ df_lda.index = spectredataquery.index
 #GRÁFICOS
 ldapalette = ['blue'  , 'orange' , 'red' , 'green']
 ldamarkers = ['o' , '^' , 's' , 'v']
-#cambiar dependiendo del número de grupos
+#sólo necesito tres elementos si trabajo con suelo
 ldapalette = ldapalette[0:3]
 ldamarkers = ldamarkers[0:3]
 

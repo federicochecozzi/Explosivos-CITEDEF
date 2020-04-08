@@ -11,7 +11,8 @@ import scipy as sp
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-#PROCESAMIENTO DE DATOS
+#Exploración de datos para buscar outliers, crea gráficos con los espectros
+#obtenidos de cada muestra en una forma cómoda
 files = glob.glob('*.xlsx')
                 
 spectredata = pd.concat(

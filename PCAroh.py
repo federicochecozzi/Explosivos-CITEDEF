@@ -30,6 +30,7 @@ spectredata = pd.concat(
                             Spot = lambda df: pd.to_numeric(df.Identifier.str[4:8]), 
                             Spectre = lambda df: pd.to_numeric(df.Identifier.str[8:12])    
                         ).query(
+                            #La primera línea es la región no nula, la segunda es una región hipotetizada como de interés
                             #Longitudes de onda Zn
                             #"Wavelength > 325 & Wavelength < 645"
                             #"Wavelength > 530 & Wavelength < 630"
@@ -84,7 +85,7 @@ explained = 100 * pca.explained_variance_ratio_
 
 pcapalette = ['blue'  , 'orange' , 'red' , 'green']
 pcamarkers = ['o' , '^' , 's' , 'v']
-#cambiar dependiendo del número de grupos
+#sólo necesito tres elementos si trabajo con suelo
 pcapalette = pcapalette[0:3]
 pcamarkers = pcamarkers[0:3]
 

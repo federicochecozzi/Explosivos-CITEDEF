@@ -12,7 +12,7 @@ from scipy.stats import iqr
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-#PROCESAMIENTO DE DATOS
+#Cálculo de mediana y rango interquartil con el propósito de realizar hipótesis sobre las longitudes de onda
 files = glob.glob('*.xlsx')
                 
 spectredata = pd.concat(
