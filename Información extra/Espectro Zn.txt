@@ -1,0 +1,3 @@
+http://www.lamptech.co.uk/Spec%20Sheets/D%20SP%20Osram%20Spectral%20Zn.htm
+https://physics.nist.gov/cgi-bin/ASD/lines1.pl?composition=Zn%3A100&mytext%5B%5D=Zn&myperc%5B%5D=100&spectra=Zn0-2&low_w=200&limits_type=0&upp_w=800&show_av=2&unit=1&resolution=1000&temp=1&eden=1e17&libs=1
+https://libs-info.com/element/Zn/

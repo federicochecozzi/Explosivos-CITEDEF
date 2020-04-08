@@ -1,0 +1,11 @@
+Zn:
+Región con longitudes de onda de interés: 325 a 645
+Hipótesis: la región distintiva es de 530 a 630
+
+Al:
+Región con longitudes de onda de interés: 305 a 710
+Hipótesis: la región distintiva es de 435 a 710
+
+Suelo:
+Región con longitudes de onda de interés: 325 a 770
+Hipótesis: la región distintiva es de 490 a 600?
