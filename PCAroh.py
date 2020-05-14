@@ -34,9 +34,11 @@ spectredata = pd.concat(
                             #Longitudes de onda Zn
                             #"Wavelength > 325 & Wavelength < 645"
                             #"Wavelength > 530 & Wavelength < 630"
+                            #"Wavelength > 460 & Wavelength < 630"
                             #Longitudes de onda Al
                             #"Wavelength > 305 & Wavelength < 710"
                             #"Wavelength > 435 & Wavelength < 710"
+                            #"Wavelength > 435 & Wavelength < 650"
                             #Longitudes de onda Suelo
                             #"Wavelength > 325 & Wavelength < 770"
                             "Wavelength > 490 & Wavelength < 600"
@@ -44,23 +46,23 @@ spectredata = pd.concat(
                             values = "Intensity", index = ["Sample","Spot","Spectre"], columns = ["Wavelength"]
                         ).dropna()    
 
-#spectredataquery = spectredata.query(
-#         "Sample == ['MST0019-ZnPu','MST0164-ZnPETN','MST0165-ZnRDX','MST0166-ZnTNT']"
-     #     "(Sample == 'MST0019-ZnPu' & (Spectre != 1 | (Spectre == 1 & Spot == 1) ) ) | " + 
-     #     "(Sample == 'MST0164-ZnPETN' & (Spectre != [1 , 2] | (Spectre == 2 & Spot != 10) | (Spectre == 1 & Spot != [11 , 10] ) ) ) | " +
-     #     "(Sample == 'MST0165-ZnRDX' & Spot != 5 &  (Spectre != 1 | (Spectre == 1 & Spot != 6) ) ) | " +
-     #     "(Sample == 'MST0166-ZnTNT' & Spectre != [1 , 2] )"
-     # )
-#spectredataquery = spectredata.query(
-#       "Sample == ['MST0148-AlPu','MST0161-AlRDX','MST0162-AlTNT','MST0163-AlPETN']"
+# spectredataquery = spectredata.query(
+#         # "Sample == ['MST0019-ZnPu','MST0164-ZnPETN','MST0165-ZnRDX','MST0166-ZnTNT']"
+#           "(Sample == 'MST0019-ZnPu' & (Spectre != 1 | (Spectre == 1 & Spot == 1) ) ) | " + 
+#           "(Sample == 'MST0164-ZnPETN' & (Spectre != [1 , 2] | (Spectre == 2 & Spot != 10) | (Spectre == 1 & Spot != [11 , 10] ) ) ) | " +
+#           "(Sample == 'MST0165-ZnRDX' & Spot != 5 &  (Spectre != 1 | (Spectre == 1 & Spot != 6) ) ) | " +
+#           "(Sample == 'MST0166-ZnTNT' & Spectre != [1 , 2] )"
+#       )
+# spectredataquery = spectredata.query(
+#       # "Sample == ['MST0148-AlPu','MST0161-AlRDX','MST0162-AlTNT','MST0163-AlPETN']"
 #       "Spectre != 1 & (Sample == ['MST0161-AlRDX','MST0162-AlTNT','MST0163-AlPETN'] | " +
-#       "(Sample == 'MST0148-AlPu' & (Spectre != 2 | (Spectre == 2 & Spot != 15) ) ) )"    
-#    )
+#       "(Sample == 'MST0148-AlPu' & (Spectre != 2 | (Spectre == 2 & Spot != 15) ) ) )"
+#     )
 spectredataquery = spectredata.query(
 #          "Sample == ['MST0209-Suelo10_Zn90','MST0244-Suelo1_TNT99','MST0245-SueloPu']"
-             "(Sample == 'MST0209-Suelo10_Zn90' & (Spectre != 1 | (Spectre == 1 & Spot != 27) ) ) | " +
-             "(Sample == 'MST0244-Suelo1_TNT99' & (Spectre != 1 | (Spectre == 1 & Spot != 31) ) ) | " +
-             "(Sample == 'MST0245-SueloPu' & (Spectre != 1 | (Spectre == 1 & Spot != 30) ) )"       
+              "(Sample == 'MST0209-Suelo10_Zn90' & (Spectre != 1 | (Spectre == 1 & Spot != 27) ) ) | " +
+              "(Sample == 'MST0244-Suelo1_TNT99' & (Spectre != 1 | (Spectre == 1 & Spot != 31) ) ) | " +
+              "(Sample == 'MST0245-SueloPu' & (Spectre != 1 | (Spectre == 1 & Spot != 30) ) )"
       )                            
                             
 #normalizamos los datos
@@ -91,6 +93,6 @@ pcamarkers = pcamarkers[0:3]
 
 df2 = df_pca.reset_index(level = 0) #esta línea convierte uno de los índices en una columna porque mucho código funciona más fácil así
 ax = sns.scatterplot(data = df2, x = "PCA1", y = "PCA2", hue = 'Sample', palette = pcapalette, style = 'Sample', markers = pcamarkers)
-ax.set_title("PCA archivos .spc")
+ax.set_title("PCA 2 grupos")
 ax.set_xlabel("PCA1 %2.2f %%"%explained[0])
 ax.set_ylabel("PCA2 %2.2f %%"%explained[1])
