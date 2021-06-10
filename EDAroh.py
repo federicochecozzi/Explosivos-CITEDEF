@@ -16,7 +16,7 @@ import seaborn as sns
 files = glob.glob('*.xlsx')
                 
 spectredata = pd.concat(
-                            [pd.read_excel(file, skiprows = list(range(1,6)))
+                            [pd.read_excel(file, skiprows = list(range(1,6)),engine='openpyxl')
                              .assign(Sample = file.rstrip(".xlsx"))
                              for file in files]
                             , ignore_index = True, sort = True
